@@ -18,14 +18,18 @@ html {
   border-radius: 4px;
   background-color: #4a4a4a;
   color: white;
+  
 }
 
 .image-container {
   overflow: hidden;
+  width: 90%;
+  height: 65%;
 }
 
 .image-container img {
   display: block;
+  max-width: 100%;
 }
 
 @media only screen and (max-width: 760px) {
@@ -34,10 +38,31 @@ html {
   }
 }
 
+/* FONTS */
+
+@font-face {
+  font-family: 'roboto_monoregular';
+  src: url('../fonts/robotomono-regular-webfont.woff') format('woff'),
+       url('../fonts/robotomono-regular-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'palatinoregular';
+  src: url('palatino_font-webfont.woff2') format('woff2'),
+       url('palatino_font-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 /* Header */
 
 header {
   position: fixed;
+  z-index: 100;
   width: 100%;
   border-bottom: solid 1px #c6c1c1;
   background-color: white;
@@ -46,11 +71,14 @@ header {
 header .content {
   display: flex;
   align-items: center;
-  padding: 1.875rem;
+  padding: 2.656rem 1.875rem;
 }
 
 header .logo {
   flex: 1;
+  color: #4a4a4a;
+  font-size: 1.5rem;
+  font-family: 'roboto_monoregular';
 }
 
 header nav ul {
@@ -66,11 +94,18 @@ nav a {
   line-height: 1.6;
   font-size: 1rem;
   color: #4a4a4a;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
 }
 
 header .icon {
   width: 1rem;
   padding-left: .75rem;
+}
+
+header .tablet {
+  display: none;
 }
 
 header .mobile {
@@ -82,13 +117,61 @@ header .mobile {
     display: none;
   }
 
+  header .tablet {
+    display: block;
+    width: 100%;
+  }
+
+  header .content {
+    padding: 2rem 1.875rem;
+  }
+
+  nav a {
+    font-size: .9rem;
+  }
+  
+
+  header .tablet ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  } 
+
+  header .tablet .button {
+    padding: .1875rem .5rem;
+    background-color: #9dc20b;
+    line-height: 1.6;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 715px) {
+  header .logo {
+    font-size: 1.4rem;
+  }
+
+  nav a {
+    font-size: .8rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  header .desktop {
+    display: none;
+  }
+
+  header .tablet {
+    display: none;
+  }
+
   header .mobile {
     display: block;
     width: 100%;
   }
 
   header .content {
-    padding: .5rem 0;
+    padding: 0.625rem 0;
   }
 
   header .mobile ul {
@@ -117,10 +200,16 @@ header .mobile {
   justify-content: flex-start;
   align-items: flex-start;
   height: 43.5rem;
+  background-image: url(../images/banner-landingpage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
 
 #sign-up-cta {
-  padding: 0 5rem 2.5rem 5rem;
+  position: absolute;
+  top: 170px; left: 100px;
+  padding: 2rem 5rem 3.5rem 5rem;
   border: solid 1px #979797;
   border-radius: 4px;
   background-color: #9dc20b;
@@ -131,6 +220,7 @@ header .mobile {
   margin-top: 2rem;
   font-family: "Roboto", sans-serif;
   font-size: 1.25rem;
+
   line-height: 1.4;
   color: white;
 }
@@ -153,6 +243,8 @@ header .mobile {
 
 #sign-up-cta .striking {
   font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   padding-bottom: .75rem;
 }
 
@@ -193,9 +285,10 @@ header .mobile {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
   #sign-up-section {
     height: 20rem;
+    background-position: right;
   }
 
   #sign-up-cta h1 {
@@ -205,6 +298,11 @@ header .mobile {
   #sign-up-cta h2 {
     font-size: 2rem;
   }
+
+  #sign-up-cta {
+    padding: 0;
+    
+  }
 }
 
 /* Features Section */
@@ -212,28 +310,40 @@ header .mobile {
 #features-section {
   display: flex;
   justify-content: space-between;
-  padding: 4rem 5%;
+  padding: 4rem 5% 2.875rem;
   background-color: #f3f3f3;
 }
 
 .feature {
-  flex: 1;
-  padding: 2rem;
-  margin: 0px 1.25rem;
+  flex: 1 1;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
   background-color: white;
 }
 
+
+#feature-img-1 {
+  margin-right: 1.188rem;
+}
+
+#feature-img-2 {
+  margin-left: 1.188rem;
+}
+
 .feature .image-container {
-  width: 90%;
-  height: 65%;
   margin: 0 auto;
 }
 
+.feature .content {
+  padding: 0 2.9rem 0 2.9rem;
+}
 .feature h2 {
+  padding-top: 2.5rem;
   padding-bottom: .5rem;
   font-size: 2.25rem;
   font-weight: bold;
   color: #4a4a4a;
+  line-height: 1.2;
 }
 
 .feature h3 {
@@ -241,22 +351,40 @@ header .mobile {
   line-height: 1.2;
   font-weight: 300;
   color: #4a4a4a;
+  padding-bottom: 4.813rem;
 }
 
-@media only screen and (max-width: 890px) {
+@media only screen and (max-width: 760px) {
+  
+  #features-section {
+    padding: 1.5rem 3% 2.875rem;
+  }
+
+  .feature {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    height: 25rem;
+  }
+  
   .feature h2 {
-    font-size: 1.125rem;
     line-height: 1.3;
-    font-weight: normal;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 1rem;
   }
 
   .feature h3 {
     font-size: .875rem;
     line-height: 1.4;
   }
+
+  .feature .content {
+    padding: 0 1.313rem;
+    text-align: left;
+  }
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 480px) {
   #features-section {
     flex-flow: column;
     padding: 0;
@@ -264,7 +392,31 @@ header .mobile {
 
   .feature {
     margin: 0;
-    padding: 1.25rem 1rem 0 1rem;
+    padding: 1rem 0 0 0;
+  }
+
+  .feature h2 {
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .feature h3 {
+    padding-bottom: 1.875rem;
+  }
+
+  .feature .content {
+    padding: 0 1.9rem;
+    text-align: center;
+  }
+  
+  #feature-img-1 {
+    margin: 0;
+    background-color: #979797;
+  }
+  
+  #feature-img-2 {
+    margin-left: 0;
   }
 }
 
@@ -291,11 +443,13 @@ header .mobile {
   line-height: 1.4;
   font-weight: 300;
   color: white;
+  opacity: 0.9;
 }
 
 #filters-section .images-container {
   max-width: 100%;
   padding: 0 1%;
+  display: flex;
 }
 
 @media only screen and (max-width: 760px) {
@@ -309,9 +463,9 @@ header .mobile {
 
   #filters-section .content h2 {
     padding-bottom: .625rem;
-    font-size: 1.125rem;
+    font-size: 2rem;
     line-height: 1.3;
-    font-weight: normal;
+    font-weight: bold;
   }
 
   #filters-section .content h3 {
@@ -322,11 +476,13 @@ header .mobile {
   #filters-section .images-container {
     padding: 0;
   }
+}
 
-  #filters-section .extra {
+@media only screen and (max-width: 480px) {
+  .fourth-img {
     display: none;
   }
-}
+} 
 
 /* Quotes Section */
 
@@ -334,37 +490,58 @@ header .mobile {
   background-color: #f3f3f3;
 }
 
-#quotes-section content {
-  padding: 5rem 0;
+#quotes-section .content {
+  padding: 5rem 2rem;
 }
 
-#quotes-section quote {
+#quotes-section .center {
+  text-align: center;
+}
+
+#quotes-section .quote {
   padding-right: 1.875rem;
-  font-family: "Palatino", serif;
+  font-family: "palatinoregular", serif;
   font-size: 1.875rem;
   line-height: 1.1;
   font-style: italic;
   color: #4a4a4a;
+  opacity: 0.9;
 }
 
-#quotes-section quote-citation {
+#quotes-section .quote-citation {
   height: 1.875rem;
 }
 
 @media only screen and (max-width: 760px) {
-  #quotes-section content {
-    padding: 1.875rem .625rem;
+  #quotes-section .content {
+    padding: 1.875rem 1.8rem;
   }
 
-  #quotes-section quote {
-    font-size: 1.5rem;
+  #quotes-section .center {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  #quotes-section .quote {
+    font-size: 1.8rem;
     line-height: 1.4;
   }
+}
 
-  #quotes-section quote-citation {
-    display: block;
+@media only screen and (max-width: 480px) {
+  #quotes-section .quote {
+    font-size: 1.5rem;
+  }
+
+  #quotes-section .center {
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #quotes-section .quote-citation {
     padding-top: 1rem;
-    margin: auto;
   }
 }
 
@@ -372,7 +549,7 @@ header .mobile {
 
 footer {
   background-color: #9b9b9b;
-  padding: 1.5rem 2rem;
+  padding: 1.938rem 2rem;
 }
 
 footer .content {
@@ -385,7 +562,7 @@ footer .copyright {
   flex-grow: 1;
 }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (max-width: 760px) {
   footer .content {
     font-size: .625rem;
   }
